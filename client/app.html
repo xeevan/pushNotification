@@ -1,0 +1,127 @@
+<head>
+  <title>My App</title>
+</head>
+
+<body>
+	<!-- {{> loginButtons}}
+	{{#if showForm}}
+		{{> form}}
+	{{/if}} -->
+</body>
+
+<template name="form">
+
+	<!-- <form>
+		<input type="text" data-field="title" placeholder="Title">
+		<input type="text" data-field="message" placeholder="Message">
+		<button data-action="send-notification">Send</button>
+	</form> -->
+
+	 <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Title</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" data-field="title" placeholder="Title">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Message</label>
+          <div class="col-lg-8">
+            <input type="text" class="form-control" data-field="message" placeholder="Message">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-8 col-lg-offset-2">
+            <button data-action="send-notification" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+    </form>
+
+</template>
+
+<template name="navbar">
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">GCM:Notification</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				{{#if currentUser}}
+					{{currentUser.profile.username}} <a href="#" id="logout">logout</a>
+				{{else}}
+					<h5>login</h5>
+				{{/if}}
+			</ul>	
+		</div>
+	</nav>
+</template>
+
+<template name="login">
+    <div class="col-lg-offset-4 col-lg-4 login">
+        <div class="well">
+            <h4 class="text-center text-info">
+                Login For Sending Notification
+            </h4>
+            <form class="" id="loginForm">
+                <div class="form-group">
+                    <label class="control-label" for="userEmail">Email</label>
+                    <input class="form-control" id="userEmail" type="email">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="userPassword">Password</label>
+                    <input class="form-control"  id="userPassword" type="password">
+                </div>
+                <div class="form-group">
+                    <button  class="btn btn-block  btn-primary" id="loginButton"> Login</button>
+                </div>
+                <div class="form-group">
+                    <span class="text-danger" id="logError"></span>
+                </div>
+            </form>
+            <div>
+                <span>Not Yet Registered <a class="btn-link text-info" href="/signup"> Signup</a> </span>
+            </div>
+
+        </div>
+    </div>
+</template>
+
+<template name="signup">
+    <div class="col-lg-offset-4 col-lg-4 signup">
+        <div class="well">
+            <h4 class="text-center text-primary">
+                Signup For Sending Notification
+            </h4>
+            <form class="" id="signupForm">
+                <div class="form-group">
+                    <label class="control-label" for="userName">Username</label>
+                    <input class="form-control" id="userName" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="userEmail">Email</label>
+                    <input class="form-control" id="userEmail" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="userPassword">Password</label>
+                    <input class="form-control"  id="userPassword" type="password">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="userConfirmPassword">Confirm Password</label>
+                    <input class="form-control"  id="userConfirmPassword" type="password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block  btn-primary"> Signup</button>
+                </div>
+            </form>
+            <div>
+                <span id="signupError"></span>
+            </div>
+            <div>
+                <span>Already A User <a class="btn-link" href="/login"> Login</a> </span>
+            </div>
+
+        </div>
+    </div>
+</template>
